@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import Dashboard from "./components/Dashboard";
+import DashboardConectado from "./components/DashboardConectado";
+
+// Con REACT_APP_USE_API=true (en un archivo .env) se conecta al backend;
+// si no, muestra el dashboard con datos de prueba.
+const USAR_API = process.env.REACT_APP_USE_API === "true";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return USAR_API ? <DashboardConectado /> : <Dashboard />;
 }
 
 export default App;
